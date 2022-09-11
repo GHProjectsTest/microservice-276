@@ -97,6 +97,7 @@ public class Res extends RESTService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "r"),
        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "res")
   })
   @ApiOperation(value = "gettest", notes = " ")
@@ -113,6 +114,15 @@ public class Res extends RESTService {
 
 
 
+    // r
+    boolean r_condition = true;
+    if(r_condition) {
+      JSONObject r = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_NOT_FOUND).entity(r.toJSONString()).build();
+    }
     // res
     boolean res_condition = true;
     if(res_condition) {
