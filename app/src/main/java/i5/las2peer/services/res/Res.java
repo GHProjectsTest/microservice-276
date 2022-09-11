@@ -125,6 +125,62 @@ public class Res extends RESTService {
     return null;
   }
 
+  /**
+   * 
+   * postDishRating
+   *
+   * 
+   * @param body  a JSONObject
+   * @param id  a String
+
+   * 
+   * @return Response 
+   * 
+   */
+  @POST
+  @Path("/dishes/{id}/ratings")
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.APPLICATION_JSON)
+  @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "not_found"),
+       @ApiResponse(code = HttpURLConnection.HTTP_CREATED, message = "created")
+  })
+  @ApiOperation(value = "postDishRating", notes = " ")
+  public Response postDishRating(String body, @PathParam("id") String id) {
+    JSONObject body_JSON = (JSONObject) JSONValue.parse(body);
+
+
+
+
+     
+    // service method invocations
+
+     
+
+
+
+
+    // not_found
+    boolean not_found_condition = true;
+    if(not_found_condition) {
+      JSONObject not_found = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_NOT_FOUND).entity(not_found.toJSONString()).build();
+    }
+    // created
+    boolean created_condition = true;
+    if(created_condition) {
+      JSONObject created = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_CREATED).entity(created.toJSONString()).build();
+    }
+    return null;
+  }
+
 
 
   }
