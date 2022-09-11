@@ -143,7 +143,8 @@ public class Res extends RESTService {
   @Consumes(MediaType.APPLICATION_JSON)
   @ApiResponses(value = {
        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "not_found"),
-       @ApiResponse(code = HttpURLConnection.HTTP_CREATED, message = "created")
+       @ApiResponse(code = HttpURLConnection.HTTP_CREATED, message = "created"),
+       @ApiResponse(code = HttpURLConnection.HTTP_BAD_REQUEST, message = "bad_request")
   })
   @ApiOperation(value = "postDishRating", notes = " ")
   public Response postDishRating(String body, @PathParam("id") String id) {
@@ -177,6 +178,15 @@ public class Res extends RESTService {
       
 
       return Response.status(HttpURLConnection.HTTP_CREATED).entity(created.toJSONString()).build();
+    }
+    // bad_request
+    boolean bad_request_condition = true;
+    if(bad_request_condition) {
+      JSONObject bad_request = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_BAD_REQUEST).entity(bad_request.toJSONString()).build();
     }
     return null;
   }
