@@ -138,7 +138,7 @@ public class Res extends RESTService {
    * 
    */
   @POST
-  @Path("/dishes/{id}/ratings2")
+  @Path("/dishes/{id}/ratings")
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
   @ApiResponses(value = {
